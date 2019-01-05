@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Budget_Buddy"
+             x:Class="Budget_Buddy.MainPage">
+
+    <ContentPage.Content>
+        <StackLayout Padding="20" VerticalOptions="Center">
+            <StackLayout Padding="50">
+                <Label 
+                    Text="Testing Fingers Crossed!" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand" />
+                <Button x:Name="PopupButton"
+                    
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    
+                    Text="Test!"
+                    TextColor="Azure"
+                    BackgroundColor="DarkSlateGray"
+                    Clicked="PopUp"
+                    />   
+            </StackLayout>
+
+            <ContentView x:Name="FirstPopUp" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DarkCyan"  Padding="10, 0" IsVisible="False">
+                <StackLayout>
+                    <Label Text="Input Your Earnings"
+                           TextColor="AliceBlue"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           />
+                    <Entry 
+                        x:Name="inputAmount"
+                        Placeholder="Earning Amount"
+                        HorizontalOptions="CenterAndExpand"
+                    />
+                    <Button 
+                        x:Name="CalculateBasicBudget"
+                        HorizontalOptions="FillAndExpand"
+                        
+                        Text="Make Budget"
+                        Clicked="budgetButton"
+                        />
+                </StackLayout>
+            </ContentView>
+            <StackLayout x:Name="SecondPopUp" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DarkCyan"  Padding="10, 0" IsVisible="True">
+                <StackLayout>
+                    <ListView x:Name="BudgetList" ItemsSource="basicBudget" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    
+                                        <StackLayout HorizontalOptions="Center" Spacing="4" Padding="5">
+                                        <Label Text="{Binding Needs}" TextColor="Black" Margin="10,0,0,0"/>
+                                        <Label Text="{Binding Wants}" TextColor="Black" Margin="10,0,0,0"/>
+                                        <Label Text="{Binding Savings}" TextColor="Black" Margin="10,0,0,0"/>
+                                        </StackLayout>
+                                    
+
+                                    
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button 
+                        x:Name="CloseBtnSecondPopUp"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        
+                        Text="Close"
+                        
+                        />
+                </StackLayout>
+
+
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+     
+</ContentPage>
